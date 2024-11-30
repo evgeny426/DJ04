@@ -1,0 +1,27 @@
+{% extends 'my_app/layoute.html' %}
+
+{% block title %}
+    <title>Новостная страница</title>
+{% endblock %}
+
+{% block content %}
+
+    <h1>Новостная страница</h1>
+    {% if news %}
+        {% for new in news %}
+        <div class="card">
+				<div class="card" style="width: 30rem;">
+					<div class="card-body">
+                        <h3 class="card-title"> {{ new.title }} </h3>
+                        <p class="card-text"> {{ new.short_description }} </p>
+                        <p class="card-text"> {{ new.text }} </p>
+                        <p class="card-text"> Дата: {{ new.pub_date }} </p>
+                        <p class="card-text"> Автор: {{ new.author }} </p>
+                    </div>
+				</div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>Новостей нет</p>
+    {% endif %}
+{% endblock %}
